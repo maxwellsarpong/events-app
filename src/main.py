@@ -1,9 +1,18 @@
 from typing import Union
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from routers.user_router import profile_router
 
 app = FastAPI()
 
+origins = ["*"]
 
-@app.get("/")
-def read_root() -> dict:
-    return {"Hello": "World"}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(profile_router)

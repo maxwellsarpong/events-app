@@ -1,7 +1,7 @@
 from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routers.user_router import profile_router
+from routers.profile_router import profile_router
 
 app = FastAPI()
 

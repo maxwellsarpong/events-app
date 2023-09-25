@@ -6,11 +6,13 @@ class CreateProfile(BaseModel):
     email: EmailStr
     phone: str
 
-
-class ShowProfile(CreateProfile):
-    fullname: str
-    email: EmailStr
-    phone: str
-
     class Config:
         orm_mode = True
+
+
+class ShowProfile(CreateProfile):
+    pass
+
+
+class UpdateProfile(CreateProfile):
+    pass

@@ -19,9 +19,14 @@ if config.config_file_name is not None:
 # for 'autogenerate' support
 # from myapp import mymodel
 from models import profile_models
+from models import skills_model
+from models import verification_model
 
 # target_metadata = mymodel.Base.metadata
 target_metadata = profile_models.Base.metadata
+target_metadata = skills_model.Base.metadata
+target_metadata = verification_model.Base.metadata
+
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:

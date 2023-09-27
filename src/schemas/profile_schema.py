@@ -1,4 +1,5 @@
 from pydantic import BaseModel, EmailStr
+from datetime import datetime
 
 
 class CreateProfile(BaseModel):
@@ -11,7 +12,9 @@ class CreateProfile(BaseModel):
 
 
 class ShowProfile(CreateProfile):
-    pass
+    id: int
+    created_at: datetime
+    updated_at: datetime
 
 
 class UpdateProfile(CreateProfile):

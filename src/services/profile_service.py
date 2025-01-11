@@ -3,7 +3,6 @@ from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 from models.profile_models import Profile
 from schemas.profile_schema import CreateProfile, ShowProfile, UpdateProfile
-from typing import List
 
 
 async def create_profile(profile: CreateProfile, db: Session) -> ShowProfile:

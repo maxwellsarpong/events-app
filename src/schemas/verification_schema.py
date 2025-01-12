@@ -6,7 +6,7 @@ class CreateVerification(BaseModel):
     verfication_code: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class ShowsVerification(CreateVerification):

@@ -1,7 +1,7 @@
 import re
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-from src.models.models import Profile
+from models.models import Profile
 from schemas.profile_schema import CreateProfile, ShowProfile, UpdateProfile
 
 

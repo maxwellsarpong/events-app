@@ -9,7 +9,6 @@ from services.review_service import (
     delete_a_review,
     get_all_review,
 )
-from typing import List
 
 review_router = APIRouter()
 get_db = database.get_db
@@ -21,7 +20,7 @@ get_db = database.get_db
     description="Register a Review",
     response_model=ShowReview,
 )
-async def create_review_router(
+async def add_review_router(
     review: CreateReview, db: Session = Depends(get_db)
 ) -> ShowReview:
     return await create_review(review=review, db=db)
@@ -44,7 +43,7 @@ async def get_a_review(id: int, db: Session = Depends(get_db)) -> ShowReview:
     response_model=ShowReview,
 )
 async def update_review(
-    id: id, review: UpdateReview, db: Session = Depends(get_db)
+    id: int, review: UpdateReview, db: Session = Depends(get_db)
 ) -> ShowReview:
     return await update_a_review(id=id, review=review, db=db)
 

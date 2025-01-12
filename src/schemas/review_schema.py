@@ -11,7 +11,7 @@ class CreateReview(BaseModel):
     suggestions: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class ShowReview(CreateReview):

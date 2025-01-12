@@ -5,27 +5,32 @@ from schemas.review_schema import CreateReview, ShowReview, UpdateReview
 
 
 async def create_review(review: CreateReview, db: Session) -> ShowReview:
-    review_exists = db.query(Review).filter(Review.id == review.id.first())
+    review_exists = db.query(Review).filter(Review.id == review.id).first()
 
     if review_exists:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Review already exists",
         )
+    try:
+        new_review = Review(
+            reviewer_name=review.reviewer_name,
+            service_name=review.service_name,
+            rating=review.rating,
+            weakness=review.weakness,
+            strength=review.strength,
+            suggestions=review.suggestions,
+        )
 
-    new_review = Review(
-        reviewer_name=review.reviewer_name,
-        skill_id=review.skill_id,
-        rating=review.rating,
-        weakness=review.weakness,
-        strength=review.strength,
-        suggestions=review.suggestions,
-    )
-
-    db.add(new_review)
-    db.commit()
-    db.refresh(new_review)
-    return new_review
+        db.add(new_review)
+        db.commit()
+        db.refresh(new_review)
+        return new_review
+    except:
+        raise HTTPException(
+            status_code=status.HTTP_403_FORBIDDEN,
+            detail="An error occured while creating review",
+        )
 
 
 async def get_review_by_id(id: int, db: Session) -> ShowReview:

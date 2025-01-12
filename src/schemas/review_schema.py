@@ -3,6 +3,7 @@ from datetime import datetime
 
 
 class CreateReview(BaseModel):
+    id: int = Field(None, alias="id")
     reviewer_name: str
     service_name: str
     rating: int

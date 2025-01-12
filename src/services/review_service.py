@@ -1,6 +1,6 @@
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-from src.models.models import Review
+from models.models import Review
 from schemas.review_schema import CreateReview, ShowReview, UpdateReview
 
 

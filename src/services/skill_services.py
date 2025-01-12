@@ -1,6 +1,6 @@
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
-from models.skills_model import Skill
+from src.models.models import Skill
 from schemas.skills_schema import CreateSkill, ShowSkill, UpdateSkill
 from typing import Iterable
 

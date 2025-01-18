@@ -28,32 +28,32 @@ async def create_profile_router(
 
 
 @profile_router.get(
-    "/api/profile/{phone}",
+    "/api/profile/{id}",
     tags=["profile"],
     description="Get a single Profile",
     response_model=ShowProfile,
 )
-async def get_a_profile(phone: str, db: Session = Depends(get_db)) -> ShowProfile:
-    return await get_profile_by_phone(phone=phone, db=db)
+async def get_a_profile(id: int, db: Session = Depends(get_db)) -> ShowProfile:
+    return await get_profile_by_phone(id=id, db=db)
 
 
 @profile_router.put(
-    "/api/profile/{phone}",
+    "/api/profile/{id}",
     tags=["profile"],
     description="Update a single Profile",
     response_model=ShowProfile,
 )
 async def update_profile(
-    phone: str, profile: UpdateProfile, db: Session = Depends(get_db)
+    id: int, profile: UpdateProfile, db: Session = Depends(get_db)
 ) -> ShowProfile:
-    return await update_a_profile(phone=phone, profile=profile, db=db)
+    return await update_a_profile(id=id, profile=profile, db=db)
 
 
 @profile_router.delete(
-    "/api/profile/{phone}", tags=["profile"], description="delete a single profile"
+    "/api/profile/{id}", tags=["profile"], description="delete a single profile"
 )
-async def delete_profile(phone: str, db: Session = Depends(get_db)) -> dict:
-    return await delete_a_profile(phone=phone, db=db)
+async def delete_profile(id: int, db: Session = Depends(get_db)) -> dict:
+    return await delete_a_profile(id=id, db=db)
 
 
 @profile_router.get(

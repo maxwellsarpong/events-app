@@ -24,6 +24,7 @@ class Profile(Base):
     fullname = Column(String, nullable=False)
     email = Column(String, unique=True, index=True)
     phone = Column(String, unique=True, nullable=False)
+    years_of_experience = Column(Integer, nullable=True)
     created_at = Column(DateTime, default=datetime.now)
     updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
 

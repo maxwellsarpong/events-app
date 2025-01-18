@@ -2,6 +2,11 @@
 This is the backend for the events application
 ```uvicorn main:app --reload```
 
+# Running alembic migrations
+```alembic revision --autogenerate -m "text"```
+```alembic upgrade head```
+
+
 # Event App
 
 # Artisan Connect: Bridging Skills with Needs

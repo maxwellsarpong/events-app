@@ -6,6 +6,7 @@ class CreateProfile(BaseModel):
     fullname: str
     email: EmailStr
     phone: str
+    years_of_experience: int
 
     class Config:
         from_attributes = True

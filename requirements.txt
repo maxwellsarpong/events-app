@@ -7,4 +7,4 @@ python-dotenv==1.0.0
 uvicorn==0.23.2
 requests==2.25.1
 pytest==6.2.5
-black==23.9.1
+black==latest
